@@ -17,6 +17,7 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
           .add(MealEntry(foodItem, FoodDatabase.foodItems[foodItem] ?? 0));
     });
   }
+  // Add food function calls back to database for adding food items
 
   void _editMealEntry(int index) async {
     String? editedFoodItem = await showDialog<String?>(
@@ -41,6 +42,7 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
         );
       },
     );
+    // Edit/update database entry function
 
     if (editedFoodItem != null) {
       setState(() {
@@ -55,6 +57,7 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
       mealEntries.removeAt(index);
     });
   }
+  // Delete database entry function
 
   int _calculateTotalCalories() {
     return mealEntries.fold(0, (sum, entry) => sum + entry.calorieAmount);
@@ -79,6 +82,7 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
       });
     }
   }
+  // Function for saving meal plans and their times/date at save time
 
   void _viewSavedMealPlans() {
     Navigator.push(
@@ -88,6 +92,7 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
               SavedMealPlanScreen(savedMealPlans: savedMealPlans)),
     );
   }
+  // Function allows the viewing of meal plans in a list
 
   void _showAddFoodItemDialog(BuildContext context) async {
     showDialog<void>(
@@ -120,6 +125,7 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
       targetCalories = int.tryParse(input) ?? 0;
     });
   }
+  // Allows target calories to be input
 
   @override
   Widget build(BuildContext context) {
@@ -227,7 +233,7 @@ class SavedMealPlanScreen extends StatelessWidget {
                     '${entry.foodItem}: ${entry.calorieAmount} calories');
               }).toList(),
             ),
-          );
+          );ts
         },
       ),
     );
@@ -247,3 +253,4 @@ class MealPlan {
 
   MealPlan({required this.date, required this.entries});
 }
+// Classes to set entries and combined meal plan entries (with dates)
