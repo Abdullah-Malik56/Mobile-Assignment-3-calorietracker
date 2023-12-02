@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'meal_plan_screen.dart';
+// Import statements
 
 void main() {
   runApp(MyApp());
 }
+// Launch app function
 
 class MyApp extends StatelessWidget {
   @override
@@ -35,3 +37,4 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+// Formating for main page
